@@ -15,7 +15,7 @@ func (uc *WorkspaceUseCase) ExportFile(payload map[string]interface{}) *entity.G
 		return entity.ErrorGUIResponse(err)
 	}
 
-	w, err := uc.workspaceRepo.Get(nil)
+	w, err := uc.workspaceRepo.Get()
 	if err != nil {
 		uc.log.Error().Msgf("failed to get workspace: %v", err)
 		return entity.ErrorGUIResponse(err)
@@ -57,7 +57,7 @@ func (uc *WorkspaceUseCase) ImportFile(payload map[string]interface{}) *entity.G
 		return entity.ErrorGUIResponse(errors.New("Failed to unmarshal file: " + err.Error()))
 	}
 
-	w, err := uc.workspaceRepo.Get(nil)
+	w, err := uc.workspaceRepo.Get()
 	if err != nil {
 		uc.log.Error().Msgf("failed to get workspace: %v", err)
 		return entity.ErrorGUIResponse(err)
