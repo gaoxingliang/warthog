@@ -294,7 +294,7 @@ func GetUInt64(f *Field, val interface{}) (interface{}, error) {
 		return 0, errors.New("value not a string")
 	}
 
-	return strconv.ParseUint(s, 10, 32)
+	return strconv.ParseUint(s, 10, 64)
 }
 
 // GetFloat32 transforms to float32.
